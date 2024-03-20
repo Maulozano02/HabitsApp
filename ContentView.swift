@@ -1,9 +1,10 @@
 //
 //  ContentView.swift
-//  Pruebas
+//  HabitsApp
 //
-//  Created by alumno on 19/03/24.
+//  Created by alumno on 20/03/24.
 //
+
 
 import SwiftUI
 
@@ -14,7 +15,7 @@ struct ContentView: View {
         ZStack{
            
             VStack {
-                Image("habitlogo")
+                Image("Habitlogo")
                 .resizable()
                 
                 VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {

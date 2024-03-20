@@ -1,6 +1,6 @@
 //
-//  prueba.swift
-//  Pruebas
+//  Habit.swift
+//  HabitsApp
 //
 //  Created by alumno on 20/03/24.
 //

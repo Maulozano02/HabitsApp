@@ -1,17 +1,15 @@
 //
-//  PruebasApp.swift
-//  Pruebas
+//  HabitsAppApp.swift
+//  HabitsApp
 //
-//  Created by alumno on 19/03/24.
+//  Created by alumno on 20/03/24.
 //
 
 import SwiftUI
 
 @main
-struct PruebasApp: App {
+struct HabitsAppApp: App {
     var body: some Scene {
-        
-        
         WindowGroup {
             ContentView()
         }

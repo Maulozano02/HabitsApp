@@ -1,11 +1,23 @@
 //
-//  PruebaViewModel.swift
-//  Pruebas
+//  HabitViewModel.swift
+//  HabitsApp
 //
 //  Created by alumno on 20/03/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct HabitViewModel: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+#Preview {
+    HabitViewModel()
+}
+
+
 /*
 @Observable
 class PruebaViewModel {

@@ -122,7 +122,7 @@ struct ContentView: View {
                                 .cornerRadius(20)
                         }
                         .padding(.top,20)
-                        .padding(.bottom, 120)
+                        .padding(.bottom, 100)
                         
                         HStack{
                             Rectangle()

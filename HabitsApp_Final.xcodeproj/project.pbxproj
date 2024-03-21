@@ -18,6 +18,7 @@
 		9C43B5D62BAC991500542242 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5D52BAC991500542242 /* TabView.swift */; };
 		9C43B5D82BAC9D8500542242 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5D72BAC9D8500542242 /* TrackerView.swift */; };
 		9C43B5DA2BAC9D9A00542242 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5D92BAC9D9A00542242 /* UserView.swift */; };
+		9C43B5DC2BACB56B00542242 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C43B5DB2BACB56B00542242 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		9C43B5D52BAC991500542242 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 		9C43B5D72BAC9D8500542242 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
 		9C43B5D92BAC9D9A00542242 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		9C43B5DB2BACB56B00542242 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				9C43B5BD2BABBBDF00542242 /* HabitsApp_FinalApp.swift */,
 				9C43B5D52BAC991500542242 /* TabView.swift */,
 				9C43B5BF2BABBBDF00542242 /* ContentView.swift */,
+				9C43B5DB2BACB56B00542242 /* Launch Screen.storyboard */,
 				9C43B5D32BABBE9100542242 /* HomePageView.swift */,
 				9C43B5D92BAC9D9A00542242 /* UserView.swift */,
 				9C43B5D72BAC9D8500542242 /* TrackerView.swift */,
@@ -148,6 +151,7 @@
 			files = (
 				9C43B5C52BABBBE200542242 /* Preview Assets.xcassets in Resources */,
 				9C43B5CF2BABBBF500542242 /* habit.json in Resources */,
+				9C43B5DC2BACB56B00542242 /* Launch Screen.storyboard in Resources */,
 				9C43B5C22BABBBE200542242 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

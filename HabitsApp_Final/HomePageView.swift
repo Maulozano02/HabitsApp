@@ -34,34 +34,31 @@ struct HomePageView: View {
             
 
             // Tu HStack con el fondo morado
-            HStack {
-                VStack {
-                    Text("Need more sleep                            ")
-                    Spacer()
-                    Text("Stay hydrated                                 ")
-                    Spacer()
-                    Text("Study is the most strong habit     ")
-                }
-                .foregroundColor(.white)
-                .padding(.vertical, 40)
-                .padding(.horizontal, 10)
-                
-                Spacer()
-                VStack {
-                    Text("50%")
-                    Spacer()
-                    Text("20%")
-                    Spacer()
-                    Text("100%")
-                }
-                .foregroundColor(.white)
-                .padding(.vertical, 40)
-                .padding(.horizontal, 10)
-            }
-            .frame(maxWidth: .infinity)
-            .background(
-                LinearGradient(gradient: Gradient(colors: [Color(hex: "C07390"), Color(hex: "A74AA3"), Color(hex: "7332A9"), Color(hex: "4D2599"), Color(hex: "36208A")]), startPoint: .leading, endPoint: .trailing)
-            )
+            VStack(alignment: .leading) {
+                Text("Your Progress")
+                    .font(.title)
+                    .padding([.top, .leading])
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 0) {
+                        Image("progress1")
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .padding()
+                        Image("progress2")
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .padding()
+                        Image("progress3")
+                            .resizable()
+                            .frame(width: 200, height: 200)
+                            .padding()
+                            }
+                        }
+                        .frame(height: 200) // Fijar un alto para el ScrollView
+
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
 
             // Dashboard
             HStack(spacing: 12) {

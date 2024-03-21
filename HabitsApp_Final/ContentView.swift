@@ -15,11 +15,13 @@ struct ContentView: View {
         ZStack{
            
             VStack {
-                Image("Habitlogo")
+                Image("LogoLogin")
                 .resizable()
+                .padding(10.0)
+                .frame(width: 330.0, height: 150.0)
                 
                 VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                    Text("H A B I T S").font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                    Text("H A B I T S").font(.title)
                     
                     
 
@@ -53,10 +55,14 @@ struct ContentView: View {
 
                     VStack{
                         Button("Login") {
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/ //NavigationView: Destination
+                            
+                            
                         }
-                            .padding() // Adds some padding around the TextField for better appearance
-                            .border(Color.gray) // Optionally, add a border to make the TextField visible
+                            .padding(15)
+                            .background(Color.purple) // Optionally, add a border to make the TextField visible
+                            .foregroundColor(.white)
+                            .cornerRadius(20)
                     }
                     })
                         }
@@ -88,3 +94,4 @@ struct checkbox: ToggleStyle {
 #Preview {
     ContentView()
 }
+

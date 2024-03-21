@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Activity: Identifiable {
+struct Activity: Identifiable, Equatable {
     let id = UUID()
     var title: String
     var subtitle: String
@@ -18,68 +18,87 @@ struct TrackerView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Image("Logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 50, height: 50)
-                    .clipShape(Circle())
-                
-                Spacer()
-                
-                Text("Habits")
-                    .foregroundColor(.purple)
-                    .font(.title)
-                
-                Spacer()
-                
-                Image(systemName: "bell")
-                    .resizable()
-                    .frame(width: 30, height: 30)
-                    .padding(.horizontal, 10)
-            }
-            .padding(.horizontal)
-            .padding(.top, 50)
-
-            HStack {
-                // Espacio reservado para el gráfico de pie
-                Rectangle()
-                    .fill(Color.clear) // Relleno transparente para mostrar tu imagen después
-                    .frame(width: 100, height: 100) // Tamaño para tu imagen del gráfico de pie
-                    .border(Color.gray) // Borde para visualizar el área
-                
-                Text("Your Progress")
-                    .font(.title)
-                    .padding([.leading, .top])
-            }
-            .padding(.vertical, 30)
-            
-            ForEach(activities) { activity in
-                HStack {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text(activity.title)
-                            .font(.headline)
-                        Text(activity.subtitle)
-                            .font(.subheadline)
-                    }
-                    .padding()
-                    .background(Rectangle().fill(Color.gray.opacity(0.2)))
-                    .cornerRadius(8)
-                    .onTapGesture {
-                        self.selectedActivity = activity
-                    }
-                    
-                    Spacer()
-                }
-                .padding(.horizontal)
-            }
-            
+            headerView
+            progressSection
+            activitiesList
             Spacer()
         }
         .sheet(item: $selectedActivity) { activity in
             ActivityDetailView(activity: activity)
         }
         .edgesIgnoringSafeArea(.top)
+    }
+    
+    var headerView: some View {
+        HStack {
+            Image("Logo") // Asegúrate de tener una imagen "Logo" en tus Assets
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50)
+                .clipShape(Circle())
+            
+            Spacer()
+            
+            Text("Habits")
+                .foregroundColor(.purple)
+                .font(.title)
+            
+            Spacer()
+            
+            Image(systemName: "bell")
+                .resizable()
+                .frame(width: 30, height: 30)
+                .padding(.horizontal, 10)
+        }
+        .padding(.horizontal)
+        .padding(.top, 50)
+    }
+    
+    var progressSection: some View {
+        HStack {
+            // Espacio reservado para el gráfico de pie
+            Rectangle()
+                .fill(Color.clear) // Relleno transparente para mostrar tu imagen después
+                .frame(width: 100, height: 100) // Tamaño para tu imagen del gráfico de pie
+                .border(Color.gray) // Borde para visualizar el área
+            
+            Text("Your Progress")
+                .font(.title)
+                .padding([.leading, .top])
+        }
+        .padding(.vertical, 30)
+    }
+    
+    var activitiesList: some View {
+        ForEach(activities) { activity in
+            HStack {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(activity.title)
+                        .font(.headline)
+                    Text(activity.subtitle)
+                        .font(.subheadline)
+                }
+                
+                Spacer()
+                
+                // Círculos para los días de la semana
+                HStack {
+                    ForEach(["S", "M", "T", "W", "T", "F", "S"], id: \.self) { day in
+                        Circle()
+                            .frame(width: 20, height: 20)
+                            .overlay(Text(day).foregroundColor(.white))
+                            .padding(2)
+                    }
+                }
+            }
+            .padding()
+            .background(Rectangle().fill(Color.gray.opacity(0.2)))
+            .cornerRadius(8)
+            .onTapGesture {
+                self.selectedActivity = activity
+            }
+            .padding(.horizontal)
+        }
     }
 }
 
@@ -98,13 +117,6 @@ struct ActivityDetailView: View {
             
             Spacer()
         }
-    }
-}
-
-// Asegúrate de que Activity cumple con Equatable para usarlo con .sheet(item:)
-extension Activity: Equatable {
-    static func == (lhs: Activity, rhs: Activity) -> Bool {
-        lhs.id == rhs.id
     }
 }
 

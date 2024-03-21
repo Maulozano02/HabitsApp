@@ -1,20 +1,11 @@
-//
-//  HomePageView.swift
-//  HabitsApp_Final
-//
-//  Created by Eugenia Ruiz Velasco Olvera on 20/03/24.
-// :
-// { }
-
-
-
 import SwiftUI
 
 struct HomePageView: View {
+    let daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+        let dayToHighlight = "Thu"
     var body: some View {
-       
-        VStack{
-            HStack{
+        VStack {
+            HStack {
                 Image("Logo")
                     .resizable()
                     .scaledToFit()
@@ -33,45 +24,70 @@ struct HomePageView: View {
                     .resizable()
                     .frame(width: 30, height: 30)
                     .padding(.horizontal, 10)
-                    
             }
-            HStack{
-                
-                Text("Tracker")
-                    .underline()
-                    .bold()
-                Text("Report")
-                    .underline()
-            }
-            HStack{
-                VStack{
-                    Text("Need improvment in Wednesday")
-                    Text("Need improvment in Wednesday")
-                    Text("Need improvment in Wednesday")
+            .padding(.horizontal)
+            .padding(.top, 50)
+            
+            // HStack con fondo morado
+            HStack {
+                VStack {
+                    Text("Need improvement in Wednesday")
+                    Text("Need improvement in Wednesday")
+                    Text("Need improvement in Wednesday")
                 }
+                .foregroundColor(.white)
+                .padding(10)
+                
                 Spacer()
                 Image("Logo")
                     .resizable()
                     .frame(width: 30, height: 30)
-                    .padding(.horizontal, 10)
-                
+                    .padding(10)
             }
-            
-            .background(Color.purple)
-            .padding()
-    
-            
+            .frame(maxWidth: .infinity) // Extiende al máximo ancho.
+            .background(
+                LinearGradient(gradient: Gradient(colors: [Color(hex: "C07390"), Color(hex: "A74AA3"), Color(hex: "7332A9"), Color(hex: "4D2599"), Color(hex: "36208A")]), startPoint: .leading, endPoint: .trailing)
+            )
+            HStack {
+                ForEach(daysOfWeek, id: \.self) { day in
+                    Text(day)
+                        .font(.system(size: day == dayToHighlight ? 20 : 15))
+                        .fontWeight(day == dayToHighlight ? .bold : .regular)
+                        .padding(.horizontal, 2)
+                }
+            }
+                        .padding(.vertical, 10)
+
 
             Text("Monthly Performance")
-            MultiDatePicker(/*@START_MENU_TOKEN@*/"Label"/*@END_MENU_TOKEN@*/, selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Binding<Set<DateComponents>>@*/.constant([])/*@END_MENU_TOKEN@*/)
+                .padding(.horizontal) // Aplica padding horizontal a este Text
+
+            // MultiDatePicker con su propio frame
+            MultiDatePicker("Label", selection: .constant([]))
                 .frame(width: 300, height: 600)
+                .padding(.horizontal)
         }
-        .padding()
-        
-        
     }
 }
 
-#Preview {
-    HomePageView()
+extension Color {
+    init(hex: String) {
+        let scanner = Scanner(string: hex)
+        var rgbValue: UInt64 = 0
+        scanner.scanHexInt64(&rgbValue)
+
+        let r = Double((rgbValue & 0xFF0000) >> 16) / 255.0
+        let g = Double((rgbValue & 0x00FF00) >> 8) / 255.0
+        let b = Double(rgbValue & 0x0000FF) / 255.0
+
+        self.init(red: r, green: g, blue: b)
+    }
 }
+
+// Preview
+struct HomePageView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomePageView()
+    }
+}
+

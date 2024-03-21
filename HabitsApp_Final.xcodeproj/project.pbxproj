@@ -15,6 +15,9 @@
 		9C43B5D02BABBBF500542242 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5CC2BABBBF500542242 /* Habit.swift */; };
 		9C43B5D22BABBBF500542242 /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5CE2BABBBF500542242 /* HabitViewModel.swift */; };
 		9C43B5D42BABBE9100542242 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5D32BABBE9100542242 /* HomePageView.swift */; };
+		9C43B5D62BAC991500542242 /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5D52BAC991500542242 /* TabView.swift */; };
+		9C43B5D82BAC9D8500542242 /* TrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5D72BAC9D8500542242 /* TrackerView.swift */; };
+		9C43B5DA2BAC9D9A00542242 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C43B5D92BAC9D9A00542242 /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		9C43B5CC2BABBBF500542242 /* Habit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		9C43B5CE2BABBBF500542242 /* HabitViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		9C43B5D32BABBE9100542242 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		9C43B5D52BAC991500542242 /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		9C43B5D72BAC9D8500542242 /* TrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerView.swift; sourceTree = "<group>"; };
+		9C43B5D92BAC9D9A00542242 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +66,11 @@
 			isa = PBXGroup;
 			children = (
 				9C43B5BD2BABBBDF00542242 /* HabitsApp_FinalApp.swift */,
+				9C43B5D52BAC991500542242 /* TabView.swift */,
 				9C43B5BF2BABBBDF00542242 /* ContentView.swift */,
 				9C43B5D32BABBE9100542242 /* HomePageView.swift */,
+				9C43B5D92BAC9D9A00542242 /* UserView.swift */,
+				9C43B5D72BAC9D8500542242 /* TrackerView.swift */,
 				9C43B5CB2BABBBF400542242 /* habit.json */,
 				9C43B5CC2BABBBF500542242 /* Habit.swift */,
 				9C43B5CE2BABBBF500542242 /* HabitViewModel.swift */,
@@ -152,8 +161,11 @@
 			files = (
 				9C43B5D02BABBBF500542242 /* Habit.swift in Sources */,
 				9C43B5C02BABBBDF00542242 /* ContentView.swift in Sources */,
+				9C43B5D82BAC9D8500542242 /* TrackerView.swift in Sources */,
+				9C43B5DA2BAC9D9A00542242 /* UserView.swift in Sources */,
 				9C43B5D22BABBBF500542242 /* HabitViewModel.swift in Sources */,
 				9C43B5BE2BABBBDF00542242 /* HabitsApp_FinalApp.swift in Sources */,
+				9C43B5D62BAC991500542242 /* TabView.swift in Sources */,
 				9C43B5D42BABBE9100542242 /* HomePageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

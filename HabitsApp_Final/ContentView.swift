@@ -18,39 +18,63 @@ struct ContentView: View {
                 Image("LogoLogin")
                 .resizable()
                 .padding(10.0)
-                .frame(width: 330.0, height: 150.0)
+                .frame(width: 285.0, height: 130.0)
                 
                 VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
-                    Text("H A B I T S").font(.title)
+                  
+                    HStack{
+                        Text("Hi, Welcome Back! 👋").font(.title2).fontWeight(.semibold)
+                        Spacer()
+                    }
                     
-                    
+                   
+                    HStack{
+                        Text("Hello again, you've been missed").font(.subheadline).foregroundColor(Color.gray)
+                        Spacer()
+                    }
 
                     
-                    VStack{
-                        Text("Email").font(.subheadline)
-                       
-                        TextField("Please enter your Email", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                            .padding() // Adds some padding around the TextField for better appearance
-                            .border(Color.gray) // Optionally, add a border to make the TextField visible
-                    }
+                        HStack{
+                            Text("Email").font(.subheadline).fontWeight(.medium)
+                            Spacer()
+                        }
+                        .padding(.top, 20.0) // Adds some top padding around the Text for better appearance
+                        
                     
-                    VStack{
-                        Text("Password").font(.subheadline)
-                       
-                        TextField("Please enter your Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
-                            .padding() // Adds some padding around the TextField for better appearance
-                            .border(Color.gray) // Optionally, add a border to make the TextField visible
+                    TextField("Please enter your Email", text: .constant(""))
+                        .font(.system(size: 14)) // Adjust the size as per your requirement
+                        .padding(4) // Adds some top padding around the TextField for better appearance
+                        .border(Color.gray) // Optionally, add a border to make the TextField visible
+
+
+                    HStack{
+                        Text("Password").font(.subheadline).fontWeight(.medium)
+                        Spacer()
                     }
+                    .padding(.top, 10.0)
+                    
+                    TextField("Please enter your Password", text: .constant(""))
+                        .font(.system(size: 14)) // Adjust the size as per your requirement
+                        .padding(4) // Adds some top padding around the TextField for better appearance
+                        .border(Color.gray) // Optionally, add a border to make the TextField visible
+
+                    
                     
                     HStack{
                         Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
-                        Text("Remember Me")
+                            Text("Remember Me").font(.callout)
                         }
                         .toggleStyle(checkbox())
+                        
+                        .padding(.trailing, 80.0)
+                        .padding(.top, 10)
+                        
                         
                         Button("Forgot password") {
                             /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                         }
+                        .font(.callout)
+                        .padding(.top, 10)
                     }
 
                     VStack{

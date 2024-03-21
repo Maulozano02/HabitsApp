@@ -15,11 +15,11 @@ struct HabitViewModel: View {
 
 /*
 @Observable
-class PruebaViewModel {
-    var Prueba = [prueba]()
+class HabitViewModel {
+    var Habit = [habit]()
     
     init() {
-        Prueba = load("pruebaj.json")
+        Habit = load("habit.json")
     }
     
     func load<T: Decodable>(_ filename: String) -> T {

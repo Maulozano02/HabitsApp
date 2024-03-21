@@ -13,11 +13,6 @@ struct HabitViewModel: View {
     }
 }
 
-#Preview {
-    HabitViewModel()
-}
-
-
 /*
 @Observable
 class PruebaViewModel {

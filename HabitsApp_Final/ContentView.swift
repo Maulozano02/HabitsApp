@@ -111,7 +111,7 @@ struct ContentView: View {
                             .padding(.top, 10)
                         }
                         
-                        NavigationLink(destination:HomePageView()){
+                        NavigationLink(destination:MainView()){
                             Text("Login")
                                 .padding(.horizontal, 150) // Adjust the horizontal padding to increase the width
                                 .padding(.vertical, 15)    // Adjust the vertical padding to increase the height

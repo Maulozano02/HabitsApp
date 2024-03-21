@@ -24,8 +24,10 @@ struct ContentView: View {
                         .resizable()
                         .padding(10.0)
                         .frame(width: 285.0, height: 130.0)
+                        .padding(.top, 20)
+                        .padding(.bottom, 20)
                     
-                    VStack (alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, content: {
+                    VStack (alignment: .center, content: {
                         
                         HStack{
                             Text("Hi, Welcome Back! 👋").font(.title2).fontWeight(.semibold)
@@ -48,8 +50,11 @@ struct ContentView: View {
                         
                         TextField("Please enter your Email", text: .constant(""))
                             .font(.system(size: 14)) // Adjust the size as per your requirement
-                            .padding(4) // Adds some top padding around the TextField for better appearance
-                            .border(Color.gray) // Optionally, add a border to make the TextField visible
+                            .padding(7) // Adds some top padding around the TextField for better appearance
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 8) // Adjust corner radius as needed
+                                    .stroke(Color.gray, lineWidth: 1) // Border color and width
+                            )
                         
                         
                         HStack{
@@ -63,13 +68,19 @@ struct ContentView: View {
                             if showPassword {
                                 TextField("Please enter your Password", text: $password)
                                     .font(.system(size: 14))
-                                    .padding(4)
-                                    .border(Color.gray)
+                                    .padding(7)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8) // Adjust corner radius as needed
+                                            .stroke(Color.gray, lineWidth: 1) // Border color and width
+                                    )
                             } else {
                                 SecureField("Please enter your Password", text: $password)
                                     .font(.system(size: 14))
-                                    .padding(4)
-                                    .border(Color.gray)
+                                    .padding(7)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 8) // Adjust corner radius as needed
+                                            .stroke(Color.gray, lineWidth: 1) // Border color and width
+                                    )
                             }
                             
                             Button(action: {
@@ -82,8 +93,9 @@ struct ContentView: View {
                         }
                         
                         
+                        
                         HStack{
-                            Toggle(isOn: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Is On@*/.constant(true)/*@END_MENU_TOKEN@*/) {
+                            Toggle(isOn: /*@PLACEHOLDER=Is On@*/.constant(true)) {
                                 Text("Remember Me").font(.callout)
                             }
                             .toggleStyle(checkbox())
@@ -93,7 +105,7 @@ struct ContentView: View {
                             
                             
                             Button("Forgot password") {
-                                /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                                
                             }
                             .font(.callout)
                             .padding(.top, 10)
@@ -109,19 +121,20 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                                 .cornerRadius(20)
                         }
-                        .padding(.top,140)
-                        .padding(.bottom, 20)
+                        .padding(.top,20)
+                        .padding(.bottom, 120)
                         
                         HStack{
                             Rectangle()
                                 .fill(Color.gray)
                                 .frame(height: 0.8)
-                            Text(" Or With  ").font(.footnote).fontWeight(.light)
+                            Text(" or Log In with  ").font(.footnote).fontWeight(.light)
                                 .foregroundColor(.gray) // Set text color to gray
                             Rectangle()
                                 .fill(Color.gray)
                                 .frame(height: 0.8)
                         }
+                        .padding(.bottom, 10)
                         
                         
                         HStack {
@@ -157,6 +170,14 @@ struct ContentView: View {
                                         .padding(6)
                                 }
                             }
+                        }
+                        .padding(.bottom, 40)
+                        
+                        HStack{
+                            Text("Don't have an account?").font(.footnote).fontWeight(.light)
+                                .foregroundColor(.gray) // Set text color to gray
+                            Text("Sign Up").font(.footnote).fontWeight(.regular)
+                                .foregroundColor(.purple) // Set text color to purple
                         }
                         
                     })

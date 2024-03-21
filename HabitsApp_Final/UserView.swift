@@ -14,10 +14,10 @@ struct UserView: View {
                     .foregroundColor(.purple)
                     .frame(height: 150)
                     .edgesIgnoringSafeArea(.top)
-                    .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 20)
+                    .shadow(color: .black, radius: 20)
                     
-            Spacer()
-            Image("user")
+            Spacer().frame(height:0)
+            Image("mau")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 150, height: 150)
@@ -41,10 +41,11 @@ struct UserView: View {
                         DetailView(label: "Phone", value: "8110491181")
                         DetailView(label: "Birthday", value: "10/01/2000")
                         DetailView(label: "Instagram", value: "MLoz")
-                        DetailView(label: "Email", value: "Mau_loz@mail.com")
-                        DetailView(label: "Password", value: "********")
+                        DetailView(label: "Email", value: "Mau_loz@gmail.com")
+                        DetailView(label: "Password", value: "****")
                     }
                     .padding(.vertical,10)
+                    
                 }
                 
                 Button("Editar Perfil") { }
@@ -56,7 +57,6 @@ struct UserView: View {
             }
             .padding(.top,160)
         }
-        Spacer()
     }
 }
 

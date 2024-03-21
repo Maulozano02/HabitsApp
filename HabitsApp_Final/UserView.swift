@@ -16,7 +16,7 @@ struct UserView: View {
                     .edgesIgnoringSafeArea(.top)
                     .shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 20)
                     
-            Spacer().frame(height:0)
+            Spacer()
             Image("user")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -45,7 +45,6 @@ struct UserView: View {
                         DetailView(label: "Password", value: "********")
                     }
                     .padding(.vertical,10)
-                    .padding(.horizontal,100)
                 }
                 
                 Button("Editar Perfil") { }
@@ -57,6 +56,7 @@ struct UserView: View {
             }
             .padding(.top,160)
         }
+        Spacer()
     }
 }
 

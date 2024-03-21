@@ -44,7 +44,7 @@ struct UserView: View {
                         DetailView(label: "Email", value: "Mau_loz@mail.com")
                         DetailView(label: "Password", value: "********")
                     }
-                    .padding(.horizontal, 100)
+                    .padding(80)
                 }
                 
                 Button("Editar Perfil") { }
@@ -54,7 +54,7 @@ struct UserView: View {
                     .cornerRadius(10)
                     .padding(.bottom, 60)
             }
-            .padding(.top, 170)
+            .padding(.top, 160)
         }
     }
 }
@@ -67,7 +67,7 @@ struct DetailView: View {
         HStack {
             Text(label + ":")
                 .bold()
-                .frame(width: 80, alignment: .leading)
+                .frame(width: 120, alignment: .leading)
             Text(value)
                 .frame(alignment: .leading)
             Spacer()

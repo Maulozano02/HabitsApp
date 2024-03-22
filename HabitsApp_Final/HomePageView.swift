@@ -29,83 +29,123 @@ struct HomePageView: View {
                     .frame(width: 30, height: 30)
                     .padding(.horizontal, 10)
             }
-            .padding(.horizontal)
-                    .padding(.top, 50)
+            //.padding(.horizontal)
+                    .padding(.top, 52)
             
 
             // Tu HStack con el fondo morado
-            VStack(alignment: .leading) {
-                Text("Your Progress")
+            VStack(alignment: .leading, spacing:0) {
+                Text("  Your Progress")
                     .font(.title)
-                    .padding([.top, .leading])
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 0) {
                         Image("progress1")
                             .resizable()
-                            .frame(width: 200, height: 200)
-                            .padding()
+                            .frame(width: 150, height: 150)
+                            .padding(6)
                         Image("progress2")
                             .resizable()
-                            .frame(width: 200, height: 200)
-                            .padding()
+                            .frame(width: 150, height: 150)
+                            .padding(6)
                         Image("progress3")
                             .resizable()
-                            .frame(width: 200, height: 200)
-                            .padding()
+                            .frame(width: 150, height: 150)
+                            .padding(6)
                             }
                         }
-                        .frame(height: 200) // Fijar un alto para el ScrollView
+                        .frame(height: 160) // Fijar un alto para el ScrollView
 
                     }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                    .frame(maxWidth: .infinity, maxHeight: 220, alignment: .topLeading)
 
             // Dashboard
-            HStack(spacing: 12) {
-                ForEach(daysOfWeek, id: \.self) { day in
-                    VStack {
-                        Rectangle()
-                            .fill(determineColor(for: day))
-                            .frame(width: 40, height: day == dayToHighlight ? 70 : 60)
-                            .cornerRadius(2)
-                                    
-                        Text(day)
-                            .font(.system(size: day == dayToHighlight ? 20 : 15))
-                            .fontWeight(day == dayToHighlight ? .bold : .regular)
+            HStack(spacing: 0){
+                Text("    Weekly Progress")
+                    .foregroundColor(.purple)
+                Spacer()
+            }
+            
+            ZStack {
+                Rectangle()
+                    .fill(Color(red: 0.929, green: 0.933, blue: 0.929))
+                    .cornerRadius(8) // Adjust the corner radius as needed
+                    .frame(height: 130) // Increase width and height
+                
+
+                HStack(spacing: 12) {
+                    ForEach(daysOfWeek, id: \.self) { day in
+                        VStack {
+                            Rectangle()
+                                .fill(determineColor(for: day))
+                                .frame(width: 40, height: day == dayToHighlight ? 70 : 60)
+                                .cornerRadius(2)
+                                        
+                            Text(day)
+                                .font(.system(size: day == dayToHighlight ? 20 : 15))
+                                .fontWeight(day == dayToHighlight ? .bold : .regular)
+                        }
                     }
                 }
             }
-            .padding(.vertical, 30)
+                
+            .padding(.bottom, 15)
 
             // Sección de rendimiento mensual
-            Text("Monthly Performance")
-                .foregroundColor(.purple)
+            HStack{
+                Text("    Monthly Performance")
+                    .foregroundColor(.purple)
+                Spacer()
+            }
             
-            let columns = Array(repeating: GridItem(.flexible()), count: 7)
-            LazyVGrid(columns: columns, spacing: 20) {
-                ForEach(0..<daysInMonth, id: \.self) { day in
-                    Button(action: {
-                        let today = Calendar.current.startOfDay(for: Date())
-                        if let dayToAdd = Calendar.current.date(byAdding: .day, value: day, to: today) {
-                            if selectedDays.contains(dayToAdd) {
-                                selectedDays.remove(dayToAdd)
-                            } else {
-                                selectedDays.insert(dayToAdd)
+            
+            ZStack {
+                Rectangle()
+                    .fill(Color(red: 0.929, green: 0.933, blue: 0.929))
+                    .cornerRadius(8) // Adjust the corner radius as needed
+                    .frame(height: 230) // Increase width and height
+                
+                VStack {
+                    HStack(spacing: 40) {
+                        ForEach(daysOfWeek, id: \.self) { day in
+                            Text(String(day.first ?? " "))
+                                .fontWeight(.bold)
+                                .foregroundColor(.purple)
+                        }
+                    }
+
+                    let columns = Array(repeating: GridItem(.flexible()), count: 7)
+
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        ForEach(0..<daysInMonth, id: \.self) { day in
+                            Button(action: {
+                                let today = Calendar.current.startOfDay(for: Date())
+                                if let dayToAdd = Calendar.current.date(byAdding: .day, value: day, to: today) {
+                                    if selectedDays.contains(dayToAdd) {
+                                        selectedDays.remove(dayToAdd)
+                                    } else {
+                                        selectedDays.insert(dayToAdd)
+                                    }
+                                }
+                            }) {
+                                Text("\(day + 1)")
+                                    .frame(width: 30, height: 30)
+                                    .background(selectedDays.contains {
+                                        Calendar.current.isDate($0, inSameDayAs: Calendar.current.date(byAdding: .day, value: day, to: Date())!)
+                                    } ? Color.purple : Color.gray)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(25)
                             }
                         }
-                    }) {
-                        Text("\(day + 1)")
-                            .frame(width: 35, height: 35)
-                            .background(selectedDays.contains {
-                                Calendar.current.isDate($0, inSameDayAs: Calendar.current.date(byAdding: .day, value: day, to: Date())!)
-                            } ? Color.purple : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(25)
                     }
+                    .padding(.horizontal, 20)
                 }
+
+
+
             }
-            Spacer()
-            .padding(.horizontal)
+
+            
         }
         .edgesIgnoringSafeArea(.top) // Ignora el área segura en la parte superior
     }

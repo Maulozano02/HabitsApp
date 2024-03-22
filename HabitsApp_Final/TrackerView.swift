@@ -31,7 +31,7 @@ struct TrackerView: View {
     
     var headerView: some View {
         HStack {
-            Image("Logo") // Asegúrate de tener una imagen "Logo" en tus Assets
+            Image("Logo")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 50, height: 50)
@@ -56,15 +56,21 @@ struct TrackerView: View {
     
     var progressSection: some View {
         HStack {
-            // Espacio reservado para el gráfico de pie
-            Rectangle()
-                .fill(Color.clear) // Relleno transparente para mostrar tu imagen después
-                .frame(width: 100, height: 100) // Tamaño para tu imagen del gráfico de pie
-                .border(Color.gray) // Borde para visualizar el área
+            Image("overall")
+                .resizable()
+                .frame(width: 170, height: 170)
             
-            Text("Your Progress")
-                .font(.title)
-                .padding([.leading, .top])
+            VStack(alignment: .center){
+                Text("Your Progress")
+                    .font(.title)
+                    .padding([.leading, .top])
+                Rectangle()
+                    .fill(
+                        LinearGradient(gradient: Gradient(colors: [Color(hex: "C07390"), Color(hex: "A74AA3"), Color(hex: "7332A9"), Color(hex: "4D2599"), Color(hex: "36208A")]), startPoint: .leading, endPoint: .trailing)
+                    )
+                    .padding(.horizontal, 3)
+                    .frame(width: 170, height: 4)
+            }
         }
         .padding(.vertical, 30)
     }
